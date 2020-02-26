@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.Title {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.searchBox {
+  background-color: darkgray;
+  padding: 5px;
+}
+
+.filterBox {
+  background-color: lightgray;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.Result {
+  border: 2px solid gainsboro;
+  padding: 10px;
+}
