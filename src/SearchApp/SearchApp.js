@@ -17,17 +17,18 @@ class SearchApp extends Component {
     this.setState({
       params
     });
+    this.getBooks(params);
   }
 
-  componentDidMount() {
+  getBooks(params) {
     fetch("https://www.googleapis.com/books/v1/volumes?" + this.state.params + "&key=AIzaSyDWDmQy1RCshVGSBDHOGekF3hbHN8BrCAU")
-    .then(res => {
+      .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later');
-      }
-      return res.json();
-    })
-    .then(data => {
+        }
+        return res.json();
+      })
+      .then(data => {
 
       console.log(data.items);
 
@@ -42,6 +43,7 @@ class SearchApp extends Component {
       });
     });
   }
+    
 
   render() {
     // const baseURL = "https://www.googleapis.com/books/v1/volumes?";
