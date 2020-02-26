@@ -30,6 +30,7 @@ class SearchForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log("you clicked search");
     const bookParams = {
       q: this.state.searchTerm,
       filter: this.state.bookType,

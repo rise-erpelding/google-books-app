@@ -3,42 +3,41 @@ import Result from '../Result/Result';
 
 class Results extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: []
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     results: []
+  //   }
+  // }
 
-  componentDidMount() {
-    fetch(this.props.queryURL)
-    .then(res => {
-      if(!res.ok) {
-        throw new Error('Something went wrong, please try again later');
-      }
-      return res.json();
-    })
-    .then(data => {
+  // componentDidMount() {
+  //   fetch(this.props.queryURL)
+  //   .then(res => {
+  //     if(!res.ok) {
+  //       throw new Error('Something went wrong, please try again later');
+  //     }
+  //     return res.json();
+  //   })
+  //   .then(data => {
 
-      console.log(data.items);
+  //     console.log(data.items);
 
-      this.setState({
-        results: data.items
-      })
-    })
-    .catch(err => {
-      console.log(err.message);
-      this.setState({
-        error: err.message
-      });
-    });
-  }
+  //     this.setState({
+  //       results: data.items
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log(err.message);
+  //     this.setState({
+  //       error: err.message
+  //     });
+  //   });
+  // }
 
   render() {
-    console.log(this.props.queryURL);
 
     const results = this
-                      .state
+                      .props
                       .results
                       .map(obj => (
                         <Result 
