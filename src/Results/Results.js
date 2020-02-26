@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Result from '../Result/Result';
 
-const url = "https://www.googleapis.com/books/v1/volumes?q=henry%20david&filter=partial&printType=all&key=AIzaSyDWDmQy1RCshVGSBDHOGekF3hbHN8BrCAU";
-
 class Results extends Component {
 
   constructor(props) {
@@ -13,7 +11,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    fetch(url)
+    fetch(this.props.queryURL)
     .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later');
@@ -23,21 +21,6 @@ class Results extends Component {
     .then(data => {
 
       console.log(data.items);
-      // console.log(data.items[0]);
-      // //Title
-      // console.log(data.items[0].volumeInfo.title);
-      // //Author
-      // console.log(data.items[0].volumeInfo.authors[0]);
-      // //Price
-      // console.log(data.items[0].saleInfo.listPrice.amount);
-      // //Currency
-      // console.log(data.items[0].saleInfo.listPrice.currencyCode);
-      // //Quick summary
-      // console.log(data.items[0].volumeInfo.description);
-      // //Thumbnail of cover
-      // console.log(data.items[0].volumeInfo.imageLinks.thumbnail);
-      // //Link to see more
-      // console.log(data.items[0].volumeInfo.infoLink);
 
       this.setState({
         results: data.items
@@ -45,13 +28,15 @@ class Results extends Component {
     })
     .catch(err => {
       console.log(err.message);
-      // this.setState({
-      //   error: err.message
-      // });
+      this.setState({
+        error: err.message
+      });
     });
   }
 
   render() {
+    console.log(this.props.queryURL);
+
     const results = this
                       .state
                       .results

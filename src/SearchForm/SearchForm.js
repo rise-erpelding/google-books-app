@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Results from '../Results/Results';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -44,7 +43,9 @@ class SearchForm extends Component {
 
     const formattedParams = formatSearchParams(bookParams);
 
-    console.log(formattedParams);
+    // console.log(formattedParams);
+
+    this.props.changeHandler(formattedParams);
 
     // const query = (({searchTerm, printType, bookType}) => ({searchTerm, printType, bookType}))(this.state);
     // const APIkey = 'AIzaSyDWDmQy1RCshVGSBDHOGekF3hbHN8BrCAU';
@@ -52,7 +53,6 @@ class SearchForm extends Component {
     };
 
   render() {
-
 
 
 
@@ -109,7 +109,6 @@ class SearchForm extends Component {
 
         </form>
 
-        <Results parameters={formattedParams} />
       </div>
 
       
